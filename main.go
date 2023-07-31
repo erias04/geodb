@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"net"
-	"time"
+	// "time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/oschwald/geoip2-golang"
@@ -20,13 +20,13 @@ func main() {
 	defer db.Close()
 
 	// Custom middleware to log request time
-	app.Use(func(c *fiber.Ctx) error {
-		start := time.Now()
-		err := c.Next() // Go to the next middleware/route handler
-		elapsed := time.Since(start)
-		log.Printf("Request time for %s: %s", c.Path(), elapsed)
-		return err
-	})
+	// app.Use(func(c *fiber.Ctx) error {
+	// 	start := time.Now()
+	// 	err := c.Next() // Go to the next middleware/route handler
+	// 	elapsed := time.Since(start)
+	// 	log.Printf("Request time for %s: %s", c.Path(), elapsed)
+	// 	return err
+	// })
 
 	app.Get("/ip/:ip", func(c *fiber.Ctx) error {
 		ip := c.Params("ip")
