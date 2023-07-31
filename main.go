@@ -28,6 +28,11 @@ func main() {
 	// 	return err
 	// })
 
+	// Route to serve the verification token file
+	app.Get("/loaderio-f4e46b474ed43f022a74183e4af5e788.txt", func(c *fiber.Ctx) error {
+		return c.SendFile("./loaderio-f4e46b474ed43f022a74183e4af5e788.txt")
+	})
+
 	app.Get("/ip/:ip", func(c *fiber.Ctx) error {
 		ip := c.Params("ip")
 
