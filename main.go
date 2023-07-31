@@ -47,5 +47,5 @@ func main() {
 		return c.JSON(coordinates)
 	})
 
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(":80"))
 }
