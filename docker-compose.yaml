@@ -1,7 +1,19 @@
 version: '3'
+
 services:
-  go-web-app:
+  backend:
     restart: always
+    expose:
+      - 80:80
+    networks:
+      - app_network
     build:
-      dockerfile: Dockerfile
-      context: .
+      dockerfile: apps/backend/docker/Dockerfile
+      context: ../../
+    environment:
+      - VIRTUAL_HOST=api.framinar.com
+      - LETSENCRYPT_HOST=api.framinar.com
+
+networks:
+  app_network:
+    driver: bridge
