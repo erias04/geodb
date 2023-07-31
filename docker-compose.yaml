@@ -8,8 +8,7 @@ services:
     networks:
       - app_network
     build:
-      dockerfile: apps/backend/docker/Dockerfile
-      context: ../../
+      dockerfile: Dockerfile
     environment:
       - VIRTUAL_HOST=api.framinar.com
       - LETSENCRYPT_HOST=api.framinar.com
